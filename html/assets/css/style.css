@@ -1,0 +1,141 @@
+.content {
+  width: 80%;
+  margin-top: 30px;
+  padding: 30px 40px;
+  border: 1px solid #000;
+}
+
+.search-bar {
+  font-size: 18px;
+}
+
+.search-bar input,
+.search-bar button {
+  width: 100%;
+}
+
+.search-bar div.col-7,
+.search-bar div.col-2 {
+  padding-right: 0;
+}
+
+.search-bar i {
+  padding-left: 3px;
+  font-size: 14px;
+}
+
+.today {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.today h2 {
+  display: inline-block;
+}
+
+.today i,
+.today .tempature {
+  font-size: 180px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.today .unit {
+  display: inline-block;
+  font-size: 30px;
+  vertical-align: top;
+  margin-top: 20px;
+}
+
+.today a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.location {
+  text-align: right;
+  vertical-align: middle;
+  margin-top: 30px;
+}
+
+h1 span.country {
+  font-size: 68px;
+  line-height: 1;
+}
+
+.today .time {
+  font-size: 28px;
+}
+
+.today .sky {
+  font-size: 22px;
+}
+
+.statistic {
+  font-size: 18px;
+}
+
+.statistic ul {
+  list-style: none;
+}
+
+.statistic li i {
+  padding-right: 8px;
+}
+
+.statistic li span {
+  font-weight: 600;
+  padding-right: 4px;
+}
+
+.tomarrow {
+  text-align: right;
+}
+
+.tomarrow a {
+  text-decoration: none;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.tomarrow .sky {
+  font-size: 18px;
+}
+
+.tomarrow-weather i {
+  font-size: 60px;
+}
+
+.tomarrow-weather span {
+  font-size: 36px;
+}
+
+.tomarrow-weather .high {
+  font-weight: 700;
+}
+
+.weekdays {
+  margin-top: 20px;
+}
+
+.weekdays a {
+  display: block;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.weekdays i {
+  font-size: 40px;
+}
+
+.weekday div {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.weekday .high {
+  font-weight: 700;
+}
