@@ -27,6 +27,9 @@ let now = new Date();
 let todayTime = document.querySelector("#today-time");
 todayTime.innerHTML = `${formatWeekday(now)}, ${formatClock(now)}`;
 
+let weatherApiKey = `3c949ba49d38be2487ee278e0d2d4059`;
+let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
+
 function showLocation(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
