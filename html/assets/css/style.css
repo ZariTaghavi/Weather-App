@@ -25,10 +25,6 @@ ul {
   font-size: 20px;
 }
 
-.search-bar input {
-  width: 100%;
-}
-
 .search-bar button {
   width: 100%;
   color: #272142;
@@ -46,12 +42,7 @@ ul {
 
 .search-bar i {
   padding-left: 3px;
-  font-size: 16px;
-}
-
-.search-bar div.col-7,
-.search-bar div.col-2 {
-  padding-right: 0;
+  font-size: 14px;
 }
 
 .today {
@@ -67,7 +58,7 @@ ul {
 .today .unit,
 .today a:hover,
 .location h1,
-.today .time,
+#today-time,
 .tomarrow a:hover {
   color: #ff558e;
 }
@@ -88,28 +79,28 @@ ul {
   margin-top: 20px;
 }
 
-.unit a:first-child {
+#celcius {
   padding-right: 8px;
 }
 
-.unit a:last-child {
-  padding-left: 4px;
+#farenheit {
+  padding-left: 6px;
   border-left: 3px solid #d4cae2;
 }
 
 .location {
   text-align: right;
   vertical-align: middle;
-  margin-top: 30px;
+  margin-top: 15px;
   padding-left: 10px;
 }
 
-h1 span.country {
+#city {
   font-size: 72px;
   line-height: 1;
 }
 
-.today .time {
+#today-time {
   font-size: 28px;
 }
 
