@@ -26,3 +26,16 @@ function formatClock(time) {
 let now = new Date();
 let todayTime = document.querySelector("#today-time");
 todayTime.innerHTML = `${formatWeekday(now)}, ${formatClock(now)}`;
+
+function showLocation(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-input");
+  let cityName = searchInput.value;
+  cityName = cityName.trim().toLowerCase();
+  cityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
+  let city = document.querySelector("#city");
+  city.innerHTML = `${cityName}`;
+}
+
+let searchForm = document.querySelector("form");
+searchForm.addEventListener("submit", showLocation);
