@@ -30,18 +30,19 @@ todayTime.innerHTML = `${formatWeekday(now)}, ${formatClock(now)}`;
 let weatherApiKey = `3c949ba49d38be2487ee278e0d2d4059`;
 let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
 
-function showLocation(event) {
+let searchForm = document.querySelector("form");
+
+let searchInput = document.querySelector("#search-input");
+
+function getCityData(event) {
   event.preventDefault();
-  let searchInput = document.querySelector("#search-input");
-  let cityName = searchInput.value;
-  cityName = cityName.trim().toLowerCase();
-  cityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
-  let city = document.querySelector("#city");
-  city.innerHTML = `${cityName}`;
+  let cityInput = searchInput.value;
+  cityInput = cityInput.trim().toLowerCase();
+  let cityWeatherUrl = `${weatherApiUrl}q=${cityInput}&appid=${weatherApiKey}`;
+  axios.get(cityWeatherUrl).then(showCityData);
 }
 
-let searchForm = document.querySelector("form");
-searchForm.addEventListener("submit", showLocation);
+searchForm.addEventListener("submit", getCityData);
 
 let farenheitflag = true;
 let celciusflag = true;
