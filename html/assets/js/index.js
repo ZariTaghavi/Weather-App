@@ -37,6 +37,25 @@ let searchInput = document.querySelector("#search-input");
 
 let cityElement = document.querySelector("#city");
 let countryElement = document.querySelector("#country");
+let temperatureElement = document.querySelector("h2");
+let descriptionElement = document.querySelector("#weather-description");
+let precipitationElement = document.querySelector("#precipitation");
+let humidityElement = document.querySelector("#humidity");
+let windSpeedElement = document.querySelector("#wind-speed");
+let uvIndexElement = document.querySelector("#uv-index");
+
+function showWeatherData(response) {
+  let temperatureValue = Math.round(response.data.main.temp);
+  let descriptionValue = response.data.weather[0].description;
+  let humidityValue = Math.round(response.data.main.humidity);
+  let windSpeedValue = Math.round(response.data.wind.speed);
+  temperatureElement.innerHTML = `${temperatureValue}`;
+  descriptionElement.innerHTML = `${descriptionValue}`;
+  precipitationElement.innerHTML = `not available`;
+  humidityElement.innerHTML = `${humidityValue} %`;
+  windSpeedElement.innerHTML = `${windSpeedValue}`;
+  uvIndexElement.innerHTML = `not available`;
+}
 
 function getWeatherData(cityName, unit) {
   let cityWeatherUrl = `${weatherApiUrl}q=${cityName}&appid=${weatherApiKey}&units=${unit}`;

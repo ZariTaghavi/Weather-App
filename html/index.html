@@ -59,7 +59,7 @@
           <div class="location col-5">
             <h1><span id="city">Tehran</span>, <span id="country">IR</span></h1>
             <div id="today-time">Wednesday 17:00</div>
-            <div class="sky">Cloudy</div>
+            <div class="sky" id="weather-description">Cloudy</div>
           </div>
         </div>
       </div>
@@ -68,15 +68,20 @@
           <div class="statistic col-5">
             <ul>
               <li>
-                <i class="fa-solid fa-umbrella"></i
-                ><span>Precipitation:</span> 0%
+                <i class="fa-solid fa-umbrella"></i><span>Precipitation: </span
+                ><span id="precipitation">0%</span>
               </li>
               <li>
-                <i class="fa-solid fa-droplet"></i><span>Humidity:</span> 34%
+                <i class="fa-solid fa-droplet"></i><span>Humidity: </span
+                ><span id="humidity">34%</span>
               </li>
-              <li><i class="fa-solid fa-wind"></i><span>Wind:</span> 2 m/s</li>
               <li>
-                <i class="fa-solid fa-glasses"></i><span>UV Index:</span> Low
+                <i class="fa-solid fa-wind"></i><span>Wind: </span
+                ><span id="wind-speed">2</span> m/s
+              </li>
+              <li>
+                <i class="fa-solid fa-glasses"></i><span>UV Index: </span
+                ><span id="uv-index">Low</span>
               </li>
             </ul>
           </div>
