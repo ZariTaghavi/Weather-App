@@ -37,6 +37,7 @@ let searchInput = document.querySelector("#search-input");
 let celciusLink = document.querySelector("#celcius");
 let farenheitLink = document.querySelector("#farenheit");
 let currentLocationButton = document.querySelector("#current-location");
+let updateLink = document.querySelector("#update");
 
 let cityElement = document.querySelector("#city");
 let countryElement = document.querySelector("#country");
@@ -124,7 +125,15 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocationData);
 }
 
+function getUpdateData(event) {
+  event.preventDefault();
+  let cityNameValue = cityElement.innerText;
+  unitValue = "metric";
+  getWeatherData(cityNameValue, unitValue);
+}
+
 searchForm.addEventListener("submit", getCityData);
 celciusLink.addEventListener("click", convertToCelcius);
 farenheitLink.addEventListener("click", convertToFarenheit);
 currentLocationButton.addEventListener("click", getLocation);
+updateLink.addEventListener("click", getUpdateData);
