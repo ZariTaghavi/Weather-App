@@ -34,6 +34,8 @@ let unitValue = "metric";
 
 let searchForm = document.querySelector("form");
 let searchInput = document.querySelector("#search-input");
+let celciusLink = document.querySelector("#celcius");
+let farenheitLink = document.querySelector("#farenheit");
 
 let cityElement = document.querySelector("#city");
 let countryElement = document.querySelector("#country");
@@ -95,36 +97,20 @@ function getCityData(event) {
   axios.get(cityWeatherUrl).then(showCityData);
 }
 
-searchForm.addEventListener("submit", getCityData);
-
-let farenheitflag = true;
-let celciusflag = true;
 function convertToFarenheit(event) {
   event.preventDefault();
-  if (farenheitflag) {
-    let temperature = document.querySelector("h2");
-    let temperatureValue = temperature.innerText;
-    temperatureValue = Number(temperatureValue);
-    let farenheit = Math.round(temperatureValue * 1.8 + 32);
-    temperature.innerHTML = farenheit;
-  }
-  farenheitflag = false;
-  celciusflag = true;
+  let cityNameValue = cityElement.innerText;
+  unitValue = "imperial";
+  getWeatherData(cityNameValue, unitValue);
 }
-let farenheitLink = document.querySelector("#farenheit");
-farenheitLink.addEventListener("click", convertToFarenheit);
 
 function convertToCelcius(event) {
-  if (celciusflag) {
-    event.preventDefault();
-    let temperature = document.querySelector("h2");
-    let temperatureValue = temperature.innerText;
-    temperatureValue = Number(temperatureValue);
-    let celcius = Math.round(((temperatureValue - 32) * 5) / 9);
-    temperature.innerHTML = celcius;
-  }
-  celciusflag = false;
-  farenheitflag = true;
+  event.preventDefault();
+  let cityNameValue = cityElement.innerText;
+  unitValue = "metric";
+  getWeatherData(cityNameValue, unitValue);
 }
-let celciusLink = document.querySelector("#celcius");
+
+searchForm.addEventListener("submit", getCityData);
 celciusLink.addEventListener("click", convertToCelcius);
+farenheitLink.addEventListener("click", convertToFarenheit);
