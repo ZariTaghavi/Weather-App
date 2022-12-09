@@ -45,11 +45,17 @@ let windSpeedElement = document.querySelector("#wind-speed");
 let uvIndexElement = document.querySelector("#uv-index");
 let windSpeedUnitElement = document.querySelector("#wind-speed-unit");
 
+function updateTime(time) {
+  todayTime.innerHTML = `${formatWeekday(time)}, ${formatClock(time)}`;
+}
+
 function showWeatherData(response) {
+  let timeValue = new Date();
   let temperatureValue = Math.round(response.data.main.temp);
   let descriptionValue = response.data.weather[0].description;
   let humidityValue = Math.round(response.data.main.humidity);
   let windSpeedValue = Math.round(response.data.wind.speed);
+  updateTime(timeValue);
   temperatureElement.innerHTML = `${temperatureValue}`;
   descriptionElement.innerHTML = `${descriptionValue}`;
   precipitationElement.innerHTML = `not available`;
