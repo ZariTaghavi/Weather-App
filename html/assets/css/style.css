@@ -106,6 +106,18 @@ ul {
   font-size: 28px;
 }
 
+#update {
+  font-size: 24px;
+  color: #ffd447;
+}
+
+#update:hover,
+#celcius:hover,
+#farenheit:hover {
+  cursor: pointer;
+  color: #ff558e;
+}
+
 .sky,
 .statistic {
   color: #defffc;
