@@ -43,6 +43,7 @@ let precipitationElement = document.querySelector("#precipitation");
 let humidityElement = document.querySelector("#humidity");
 let windSpeedElement = document.querySelector("#wind-speed");
 let uvIndexElement = document.querySelector("#uv-index");
+let windSpeedUnitElement = document.querySelector("#wind-speed-unit");
 
 function showWeatherData(response) {
   let temperatureValue = Math.round(response.data.main.temp);
@@ -55,6 +56,14 @@ function showWeatherData(response) {
   humidityElement.innerHTML = `${humidityValue} %`;
   windSpeedElement.innerHTML = `${windSpeedValue}`;
   uvIndexElement.innerHTML = `not available`;
+}
+
+function showWeatherUnit(weatherUnit) {
+  if (weatherUnit === "metric") {
+    windSpeedUnitElement.innerHTML = `m/s`;
+  } else {
+    windSpeedUnitElement.innerHTML = `mph`;
+  }
 }
 
 function getWeatherData(cityName, unit) {
