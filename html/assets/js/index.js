@@ -30,9 +30,22 @@ todayTime.innerHTML = `${formatWeekday(now)}, ${formatClock(now)}`;
 let weatherApiKey = `3c949ba49d38be2487ee278e0d2d4059`;
 let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
 
-let searchForm = document.querySelector("form");
+let unitValue = "metric";
 
+let searchForm = document.querySelector("form");
 let searchInput = document.querySelector("#search-input");
+
+let cityElement = document.querySelector("#city");
+let countryElement = document.querySelector("#country");
+
+function showCityData(response) {
+  let countryNameValue = response.data.sys.country;
+  let cityNameValue = response.data.name;
+  cityElement.innerHTML = `${cityNameValue}`;
+  countryElement.innerHTML = `${countryNameValue}`;
+  unitValue = "metric";
+  getWeatherData(cityNameValue, unitValue);
+}
 
 function getCityData(event) {
   event.preventDefault();
