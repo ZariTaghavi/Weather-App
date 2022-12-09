@@ -38,6 +38,12 @@ let searchInput = document.querySelector("#search-input");
 let cityElement = document.querySelector("#city");
 let countryElement = document.querySelector("#country");
 
+function getWeatherData(cityName, unit) {
+  let cityWeatherUrl = `${weatherApiUrl}q=${cityName}&appid=${weatherApiKey}&units=${unit}`;
+  axios.get(cityWeatherUrl).then(showWeatherData);
+  showWeatherUnit(unit);
+}
+
 function showCityData(response) {
   let countryNameValue = response.data.sys.country;
   let cityNameValue = response.data.name;
