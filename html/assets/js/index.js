@@ -70,8 +70,12 @@ function showWeatherData(response) {
 
 function showWeatherUnit(weatherUnit) {
   if (weatherUnit === "metric") {
+    celciusLink.classList.add("active");
+    farenheitLink.classList.remove("active");
     windSpeedUnitElement.innerHTML = `m/s`;
   } else {
+    celciusLink.classList.remove("active");
+    farenheitLink.classList.add("active");
     windSpeedUnitElement.innerHTML = `mph`;
   }
 }

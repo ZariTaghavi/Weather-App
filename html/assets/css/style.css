@@ -90,6 +90,18 @@ ul {
   color: #ffd447;
 }
 
+#celcius:hover,
+#farenheit:hover {
+  cursor: pointer;
+  color: #ff558e;
+}
+
+#celcius.active,
+#farenheit.active {
+  cursor: default;
+  color: #ff558e;
+}
+
 .location {
   text-align: right;
   vertical-align: middle;
@@ -111,9 +123,7 @@ ul {
   color: #ffd447;
 }
 
-#update:hover,
-#celcius:hover,
-#farenheit:hover {
+#update:hover {
   cursor: pointer;
   color: #ff558e;
 }
