@@ -31,6 +31,7 @@ let weatherApiKey = `3c949ba49d38be2487ee278e0d2d4059`;
 let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
 
 let unitValue = "metric";
+let defaultCity = "Tehran";
 
 let searchForm = document.querySelector("form");
 let searchInput = document.querySelector("#search-input");
@@ -190,6 +191,7 @@ function getUpdateData(event) {
   getWeatherData(cityNameValue, unitValue);
 }
 
+getWeatherData(defaultCity, unitValue);
 searchForm.addEventListener("submit", getCityData);
 celciusLink.addEventListener("click", convertToCelcius);
 farenheitLink.addEventListener("click", convertToFarenheit);
