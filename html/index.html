@@ -48,13 +48,31 @@
       </div>
       <div class="today container">
         <div class="row">
-          <div class="col-7">
+          <div class="col-5">
             <i id="weather-icon" class="fa-solid"></i>
             <h2>13</h2>
+          </div>
+          <div class="col-2">
             <span class="unit"
               ><span class="active" id="celcius">°C</span
               ><span id="farenheit">°F</span></span
             >
+            <span class="statistic">
+              <ul>
+                <li>
+                  <i class="fa-solid fa-temperature-high"></i
+                  ><span>High : </span><span id="high-temp"></span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-temperature-low"></i><span>Low : </span
+                  ><span id="low-temp"></span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-temperature-half"></i
+                  ><span>Feels like : </span><span id="feels-temp"></span>
+                </li>
+              </ul>
+            </span>
           </div>
           <div class="location col-5">
             <h1><span id="city">Tehran</span>, <span id="country">IR</span></h1>
