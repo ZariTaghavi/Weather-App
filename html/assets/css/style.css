@@ -13,7 +13,7 @@ ul {
 }
 
 .content {
-  width: 80%;
+  width: 85%;
   margin-top: 10px;
   padding: 30px 40px 20px;
   border: 1px solid transparent;
@@ -119,15 +119,17 @@ ul {
 .today div.col-2 {
   padding: 0;
 }
-today-weather .location {
+
+.location {
   text-align: right;
   vertical-align: middle;
   margin-top: 15px;
-  padding-left: 10px;
+  padding-right: 25px;
+  padding-left: 0;
 }
 
 #city {
-  font-size: 72px;
+  font-size: 52px;
   line-height: 1;
 }
 
@@ -136,6 +138,7 @@ today-weather .location {
 }
 
 #update {
+  padding-left: 8px;
   font-size: 24px;
   color: #ffd447;
 }
@@ -151,12 +154,13 @@ today-weather .location {
 }
 
 .today .sky {
-  font-size: 22px;
+  font-size: 24px;
+  text-transform: capitalize;
 }
 
 .statistic {
   font-size: 18px;
-  padding-left: 30px;
+  padding-left: 80px;
 }
 
 .statistic li i {
@@ -174,7 +178,7 @@ today-weather .location {
 }
 
 .tomarrow a {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 600;
   line-height: 1;
 }
@@ -185,17 +189,18 @@ today-weather .location {
 
 .tomarrow-weather i {
   font-size: 60px;
-  padding-top: 20px;
+  vertical-align: middle;
+  margin: 20px 5px 0 0;
 }
 
 .tomarrow-weather span,
 .weekday div {
-  color: #00bfb3;
+  color: #e2eafc;
 }
 
 .tomarrow-weather span {
   font-size: 36px;
-  padding-top: 20px;
+  vertical-align: middle;
 }
 
 .tomarrow-weather .high {
@@ -321,9 +326,9 @@ footer {
 }
 
 footer a {
-  color: #ff558e;
+  color: #7743ef;
 }
 
 footer a:hover {
-  color: #7743ef;
+  color: #ff558e;
 }
