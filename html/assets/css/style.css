@@ -222,27 +222,71 @@ ul {
 }
 
 i.fa-cloud {
-  color: #8dc6ff;
+  color: #90e0ef;
+}
+
+i.scattered-clouds {
+  color: #00b4d8;
+}
+
+i.broken-clouds {
+  color: #0077b6;
+}
+
+i.overcast-clouds {
+  color: #03045e;
 }
 
 i.fa-sun {
-  color: #e9c46a;
+  color: #fce762;
+}
+
+i.fa-moon {
+  color: #c8b6ff;
 }
 
 i.fa-cloud-sun {
-  color: #f4a261;
+  color: #ffb17a;
 }
 
-i.fa-cloud-moon-rain {
-  color: #7743ef;
+i.fa-cloud-moon {
+  color: #9d7bf4;
 }
 
 i.fa-cloud-sun-rain {
-  color: #e76f51;
+  color: #ff9244;
+}
+
+i.fa-cloud-moon-rain {
+  color: #8155f1;
 }
 
 i.fa-cloud-rain {
-  color: #235789;
+  color: #652fee;
+}
+
+i.fa-cloud-showers-heavy {
+  color: #4d12e2;
+}
+
+i.fa-snowflake {
+  color: #abc4ff;
+}
+
+i.fa-smog {
+  color: #aea4bf;
+}
+
+i.fa-cloud-bolt {
+  color: #240046;
+}
+
+i.fa-volcano {
+  color: #b5838d;
+}
+
+i.fa-tornado {
+  color: #ffb4a2;
 }
 
 .weekday div {
