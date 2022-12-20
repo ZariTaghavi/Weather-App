@@ -43,6 +43,9 @@ let iconElement = document.querySelector("#weather-icon");
 let cityElement = document.querySelector("#city");
 let countryElement = document.querySelector("#country");
 let temperatureElement = document.querySelector("h2");
+let highTemperatureElement = document.querySelector("#high-temp");
+let lowTemperatureElement = document.querySelector("#low-temp");
+let feelsTemperatureElement = document.querySelector("#feels-temp");
 let descriptionElement = document.querySelector("#weather-description");
 let precipitationElement = document.querySelector("#precipitation");
 let humidityElement = document.querySelector("#humidity");
@@ -98,6 +101,9 @@ function showWeatherData(response) {
   let timeValue = new Date();
   let iconIdValue = response.data.weather[0].id;
   let iconTimeValue = response.data.weather[0].icon;
+  let highTemperatureValue = Math.round(response.data.main.temp_max);
+  let lowTemperatureValue = Math.round(response.data.main.temp_min);
+  let feelsTemperatureValue = Math.round(response.data.main.feels_like);
   let temperatureValue = Math.round(response.data.main.temp);
   let descriptionValue = response.data.weather[0].description;
   let humidityValue = Math.round(response.data.main.humidity);
@@ -106,11 +112,14 @@ function showWeatherData(response) {
   showWeathericon(iconIdValue, iconTimeValue);
   updateTime(timeValue);
   temperatureElement.innerHTML = `${temperatureValue}`;
+  highTemperatureElement.innerHTML = `${highTemperatureValue}`;
+  lowTemperatureElement.innerHTML = `${lowTemperatureValue}`;
+  feelsTemperatureElement.innerHTML = `${feelsTemperatureValue}`;
   descriptionElement.innerHTML = `${descriptionValue}`;
-  precipitationElement.innerHTML = `not available`;
+  precipitationElement.innerHTML = `-`;
   humidityElement.innerHTML = `${humidityValue} %`;
   windSpeedElement.innerHTML = `${windSpeedValue}`;
-  uvIndexElement.innerHTML = `not available`;
+  uvIndexElement.innerHTML = `-`;
 }
 
 function showWeatherUnit(weatherUnit) {
