@@ -50,8 +50,9 @@ ul {
   margin-bottom: 30px;
 }
 
-.today i {
-  padding-left: 10px;
+.today-weather {
+  padding: 0;
+  text-align: center;
 }
 
 .today h2,
@@ -64,11 +65,15 @@ ul {
 }
 
 .today h2,
-.today i {
+#weather-icon {
   display: inline-block;
-  font-size: 180px;
+  font-size: 140px;
   font-weight: 600;
-  line-height: 1;
+}
+
+#weather-icon {
+  padding-right: 10px;
+  font-size: 160px;
 }
 
 .today .unit {
@@ -102,7 +107,19 @@ ul {
   color: #ff558e;
 }
 
-.location {
+.today span.statistic {
+  padding: 0;
+}
+
+.today span.statistic ul {
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.today div.col-2 {
+  padding: 0;
+}
+today-weather .location {
   text-align: right;
   vertical-align: middle;
   margin-top: 15px;
