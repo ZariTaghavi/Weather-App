@@ -1,3 +1,9 @@
+function formatWeekdayshort(time) {
+  let timestamp = new Date(time * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return `${days[timestamp.getDay()]}`;
+}
+
 function formatWeekday(time) {
   let days = [
     "Sunday",
