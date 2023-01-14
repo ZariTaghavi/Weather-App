@@ -34,10 +34,14 @@ let todayTime = document.querySelector("#today-time");
 todayTime.innerHTML = `${formatWeekday(now)}, ${formatClock(now)}`;
 
 let weatherApiKey = `3c949ba49d38be2487ee278e0d2d4059`;
-let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
+let weatherApiUrl = `https://api.openweathermap.org/data/2.5/`;
 
 let unitValue = "metric";
 let defaultCity = "Tehran";
+let latitudeValue = "35.6944";
+let longitudeValue = "51.4215";
+let defaultCityLatitude = "35.6944";
+let defaultCityLongitude = "51.4215";
 
 let searchForm = document.querySelector("form");
 let searchInput = document.querySelector("#search-input");
@@ -59,6 +63,8 @@ let humidityElement = document.querySelector("#humidity");
 let windSpeedElement = document.querySelector("#wind-speed");
 let uvIndexElement = document.querySelector("#uv-index");
 let windSpeedUnitElement = document.querySelector("#wind-speed-unit");
+let tomarrowWeatherElement = document.querySelector("#tomarrow-weather");
+let weekdayForcastElement = document.querySelector("#weekdays");
 
 function updateTime(time) {
   todayTime.innerHTML = `${formatWeekday(time)}, ${formatClock(time)}`;
@@ -106,8 +112,53 @@ function getWeathericon(iconId, iconTime) {
   return iconClassNames;
 }
 
+function showForcastData(response) {
+  let forcast = response.data.daily;
+  let tomarrowWeatherHtml = "";
+  let weekDayHtml = "";
+
+  tomarrowWeatherHtml = `<div class="container">
+        <div class="tomarrow row">
+          <div class="col-7 text-end">
+            <a href="#">Tomorrow</a>
+            <div class="sky">${forcast[1].weather[0].description}</div>
+          </div>
+          <div class="col-5 text-center">
+            <i class="${getWeathericon(
+              forcast[1].weather[0].id,
+              forcast[1].weather[0].icon
+            )}"></i>
+            <span class="high">${Math.round(forcast[1].temp.max)}°</span>
+            <span> ${Math.round(forcast[1].temp.min)}°</span>
+          </div>
+        </div>
+    </div>`;
+
+  weekDayHtml = `<div class="row">`;
+  forcast.forEach(function (day, index) {
+    if (index >= 2 && index <= 6) {
+      weekDayHtml += `<div class="weekday col">
+            <a href="#">${formatWeekdayshort(
+              day.dt
+            )}</a><i class="${getWeathericon(
+        day.weather[0].id,
+        day.weather[0].icon
+      )}"></i>
+            <div><span class="high">${Math.round(
+              day.temp.max
+            )}°</span> ${Math.round(day.temp.min)}°</div>
+          </div>`;
+    }
+  });
+  weekDayHtml += `</div>`;
+
+  tomarrowWeatherElement.innerHTML = tomarrowWeatherHtml;
+  weekdayForcastElement.innerHTML = weekDayHtml;
+  precipitationElement.innerHTML = `${Math.round(forcast[0].pop * 100)} %`;
+}
+
 function showWeatherData(response) {
-  let timeValue = new Date();
+  let timeValue = new Date(response.data.dt * 1000);
   let iconIdValue = response.data.weather[0].id;
   let iconTimeValue = response.data.weather[0].icon;
   let highTemperatureValue = Math.round(response.data.main.temp_max);
@@ -126,7 +177,6 @@ function showWeatherData(response) {
   lowTemperatureElement.innerHTML = `${lowTemperatureValue}`;
   feelsTemperatureElement.innerHTML = `${feelsTemperatureValue}`;
   descriptionElement.innerHTML = `${descriptionValue}`;
-  precipitationElement.innerHTML = `-`;
   humidityElement.innerHTML = `${humidityValue} %`;
   windSpeedElement.innerHTML = `${windSpeedValue}`;
   uvIndexElement.innerHTML = `-`;
@@ -145,18 +195,26 @@ function showWeatherUnit(weatherUnit) {
 }
 
 function getWeatherData(cityName, unit) {
-  let cityWeatherUrl = `${weatherApiUrl}q=${cityName}&appid=${weatherApiKey}&units=${unit}`;
+  let cityWeatherUrl = `${weatherApiUrl}weather?q=${cityName}&appid=${weatherApiKey}&units=${unit}`;
   axios.get(cityWeatherUrl).then(showWeatherData);
   showWeatherUnit(unit);
+}
+
+function getForcastData(latitude, longitude, unit) {
+  let forcastUrl = `${weatherApiUrl}onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,alerts&appid=${weatherApiKey}&units=${unit}`;
+  axios.get(forcastUrl).then(showForcastData);
 }
 
 function showCityData(response) {
   let countryNameValue = response.data.sys.country;
   let cityNameValue = response.data.name;
+  latitudeValue = response.data.coord.lat;
+  longitudeValue = response.data.coord.lon;
   cityElement.innerHTML = `${cityNameValue}`;
   countryElement.innerHTML = `${countryNameValue}`;
   unitValue = "metric";
   getWeatherData(cityNameValue, unitValue);
+  getForcastData(latitudeValue, longitudeValue, unitValue);
 }
 
 function getCityData(event) {
@@ -201,6 +259,7 @@ function getUpdateData(event) {
 }
 
 getWeatherData(defaultCity, unitValue);
+getForcastData(defaultCityLatitude, defaultCityLongitude, unitValue);
 searchForm.addEventListener("submit", getCityData);
 celciusLink.addEventListener("click", convertToCelcius);
 farenheitLink.addEventListener("click", convertToFarenheit);

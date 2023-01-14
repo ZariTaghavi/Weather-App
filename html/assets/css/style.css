@@ -190,27 +190,27 @@ ul {
   font-size: 18px;
 }
 
-.tomarrow-weather i {
+#tomarrow-weather i {
   font-size: 60px;
   vertical-align: middle;
   margin: 20px 5px 0 0;
 }
 
-.tomarrow-weather span,
+#tomarrow-weather span,
 .weekday div {
   color: #e2eafc;
 }
 
-.tomarrow-weather span {
+#tomarrow-weather span {
   font-size: 36px;
   vertical-align: middle;
 }
 
-.tomarrow-weather .high {
+#tomarrow-weather .high {
   font-weight: 700;
 }
 
-.weekdays {
+#weekdays {
   width: 90%;
   margin-top: 10px;
 }
@@ -229,20 +229,20 @@ ul {
   border: 1px solid transparent;
 }
 
-.weekdays a {
+#weekdays a {
   display: block;
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.weekdays a:hover,
+#weekdays a:hover,
 .weekday:hover a,
 .weekday:hover.weekday div {
   color: #3f3855;
 }
 
-.weekdays i {
+#weekdays i {
   font-size: 40px;
 }
 
