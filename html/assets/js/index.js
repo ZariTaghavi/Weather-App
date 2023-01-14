@@ -58,44 +58,46 @@ function updateTime(time) {
   todayTime.innerHTML = `${formatWeekday(time)}, ${formatClock(time)}`;
 }
 
-function showWeathericon(iconId, iconTime) {
-  iconElement.setAttribute("class", "fa-solid");
+function getWeathericon(iconId, iconTime) {
+  let iconClassNames = "";
+  iconClassNames += "fa-solid ";
   if (200 <= iconId && iconId < 300) {
-    iconElement.classList.add("fa-cloud-bolt");
+    iconClassNames += "fa-cloud-bolt";
   } else if (300 <= iconId && iconId < 400) {
-    iconElement.classList.add("fa-cloud-rain");
-  } else if (502 <= iconId && iconId < 600 && iconId == !511) {
-    iconElement.classList.add("fa-cloud-showers-heavy");
+    iconClassNames += "fa-cloud-rain";
   } else if (500 <= iconId && iconId <= 501 && iconTime == "10d") {
-    iconElement.classList.add("fa-cloud-sun-rain");
+    iconClassNames += "fa-cloud-sun-rain";
   } else if (500 <= iconId && iconId <= 501 && iconTime == "10n") {
-    iconElement.classList.add("fa-cloud-moon-rain");
+    iconClassNames += "fa-cloud-moon-rain";
+  } else if (502 <= iconId && iconId < 600 && iconId !== 511) {
+    iconClassNames += "fa-cloud-showers-heavy";
   } else if ((600 <= iconId && iconId < 700) || iconId == 511) {
-    iconElement.classList.add("fa-snowflake");
+    iconClassNames += "fa-snowflake";
   } else if ((700 <= iconId && iconId <= 761) || iconId == 771) {
-    iconElement.classList.add("fa-smog");
+    iconClassNames += "fa-smog";
   } else if (iconId == 762) {
-    iconElement.classList.add("fa-volcano");
+    iconClassNames += "fa-volcano";
   } else if (iconId == 781) {
-    iconElement.classList.add("fa-tornado");
+    iconClassNames += "fa-tornado";
   } else if (iconId == 800 && iconTime == "01d") {
-    iconElement.classList.add("fa-sun");
+    iconClassNames += "fa-sun";
   } else if (iconId == 800 && iconTime == "01n") {
-    iconElement.classList.add("fa-moon");
+    iconClassNames += "fa-moon";
   } else if (iconId == 801 && iconTime == "02d") {
-    iconElement.classList.add("fa-cloud-sun");
+    iconClassNames += "fa-cloud-sun";
   } else if (iconId == 801 && iconTime == "02n") {
-    iconElement.classList.add("fa-cloud-moon");
+    iconClassNames += "fa-cloud-moon";
   } else if (802 <= iconId && iconId <= 804) {
-    iconElement.classList.add("fa-cloud");
+    iconClassNames += "fa-cloud ";
     if (iconId == 802) {
-      iconElement.classList.add("scattered-clouds");
+      iconClassNames += "scattered-clouds";
     } else if (iconId == 803) {
-      iconElement.classList.add("broken-clouds");
+      iconClassNames += "broken-clouds";
     } else if (iconId == 804) {
-      iconElement.classList.add("overcast-clouds");
+      iconClassNames += "overcast-clouds";
     }
   }
+  return iconClassNames;
 }
 
 function showWeatherData(response) {
@@ -110,8 +112,9 @@ function showWeatherData(response) {
   let humidityValue = Math.round(response.data.main.humidity);
   let windSpeedValue = Math.round(response.data.wind.speed);
 
-  showWeathericon(iconIdValue, iconTimeValue);
   updateTime(timeValue);
+  let iconClassNamesValue = getWeathericon(iconIdValue, iconTimeValue);
+  iconElement.setAttribute("class", `${iconClassNamesValue}`);
   temperatureElement.innerHTML = `${temperatureValue}`;
   highTemperatureElement.innerHTML = `${highTemperatureValue}`;
   lowTemperatureElement.innerHTML = `${lowTemperatureValue}`;
