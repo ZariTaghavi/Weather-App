@@ -112,6 +112,20 @@ function getWeathericon(iconId, iconTime) {
   return iconClassNames;
 }
 
+function uvIndexConvert(uvi) {
+  if (uvi <= 2) {
+    return "Low";
+  } else if (uvi > 2 && uvi <= 5) {
+    return "Moderate";
+  } else if (uvi > 5 && uvi <= 7) {
+    return "High";
+  } else if (uvi > 7 && uvi <= 10) {
+    return "Very High";
+  } else if (uvi > 10) {
+    return "Extreme";
+  }
+}
+
 function showForcastData(response) {
   let forcast = response.data.daily;
   let tomarrowWeatherHtml = "";
@@ -155,6 +169,7 @@ function showForcastData(response) {
   tomarrowWeatherElement.innerHTML = tomarrowWeatherHtml;
   weekdayForcastElement.innerHTML = weekDayHtml;
   precipitationElement.innerHTML = `${Math.round(forcast[0].pop * 100)} %`;
+  uvIndexElement.innerHTML = `${uvIndexConvert(response.data.current.uvi)}`;
 }
 
 function showWeatherData(response) {
@@ -179,7 +194,6 @@ function showWeatherData(response) {
   descriptionElement.innerHTML = `${descriptionValue}`;
   humidityElement.innerHTML = `${humidityValue} %`;
   windSpeedElement.innerHTML = `${windSpeedValue}`;
-  uvIndexElement.innerHTML = `-`;
 }
 
 function showWeatherUnit(weatherUnit) {
@@ -221,7 +235,7 @@ function getCityData(event) {
   event.preventDefault();
   let cityInput = searchInput.value;
   cityInput = cityInput.trim().toLowerCase();
-  let cityWeatherUrl = `${weatherApiUrl}q=${cityInput}&appid=${weatherApiKey}`;
+  let cityWeatherUrl = `${weatherApiUrl}weather?q=${cityInput}&appid=${weatherApiKey}`;
   axios.get(cityWeatherUrl).then(showCityData);
 }
 
