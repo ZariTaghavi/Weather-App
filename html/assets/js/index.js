@@ -63,6 +63,9 @@ let humidityElement = document.querySelector("#humidity");
 let windSpeedElement = document.querySelector("#wind-speed");
 let uvIndexElement = document.querySelector("#uv-index");
 let windSpeedUnitElement = document.querySelector("#wind-speed-unit");
+let sunriseElement = document.querySelector("#sunrise");
+let sunsetElement = document.querySelector("#sunset");
+let moonPhaseElement = document.querySelector("#moon-phase");
 let tomarrowWeatherElement = document.querySelector("#tomarrow-weather");
 let weekdayForcastElement = document.querySelector("#weekdays");
 
@@ -126,6 +129,26 @@ function uvIndexConvert(uvi) {
   }
 }
 
+function moonPhaseConvert(phase) {
+  if (phase == 0 || phase == 1) {
+    return "new moon";
+  } else if (phase == 0.25) {
+    return "first quarter moon";
+  } else if (phase == 0.5) {
+    return "full moon";
+  } else if (phase == 0.75) {
+    return "last quarter moon";
+  } else if (phase > 0 && phase < 0.25) {
+    return "waxing crescent";
+  } else if (phase > 0.25 && phase < 0.5) {
+    return "waxing gibous";
+  } else if (phase > 0.5 && phase < 0.75) {
+    return "waning gibous";
+  } else if (phase > 0.75 && phase < 1) {
+    return "waning crescent";
+  }
+}
+
 function showForcastData(response) {
   let forcast = response.data.daily;
   let tomarrowWeatherHtml = "";
@@ -170,6 +193,7 @@ function showForcastData(response) {
   weekdayForcastElement.innerHTML = weekDayHtml;
   precipitationElement.innerHTML = `${Math.round(forcast[0].pop * 100)} %`;
   uvIndexElement.innerHTML = `${uvIndexConvert(response.data.current.uvi)}`;
+  moonPhaseElement.innerHTML = `${moonPhaseConvert(forcast[0].moon_phase)}`;
 }
 
 function showWeatherData(response) {
@@ -183,6 +207,8 @@ function showWeatherData(response) {
   let descriptionValue = response.data.weather[0].description;
   let humidityValue = Math.round(response.data.main.humidity);
   let windSpeedValue = Math.round(response.data.wind.speed);
+  let sunriseValue = new Date(response.data.sys.sunrise * 1000);
+  let sunsetValue = new Date(response.data.sys.sunset * 1000);
 
   updateTime(timeValue);
   let iconClassNamesValue = getWeathericon(iconIdValue, iconTimeValue);
@@ -194,6 +220,8 @@ function showWeatherData(response) {
   descriptionElement.innerHTML = `${descriptionValue}`;
   humidityElement.innerHTML = `${humidityValue} %`;
   windSpeedElement.innerHTML = `${windSpeedValue}`;
+  sunriseElement.innerHTML = `${formatClock(sunriseValue)}`;
+  sunsetElement.innerHTML = `${formatClock(sunsetValue)}`;
 }
 
 function showWeatherUnit(weatherUnit) {
