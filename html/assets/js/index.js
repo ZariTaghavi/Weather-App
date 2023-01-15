@@ -272,6 +272,7 @@ function convertToFarenheit(event) {
   let cityNameValue = cityElement.innerText;
   unitValue = "imperial";
   getWeatherData(cityNameValue, unitValue);
+  getForcastData(latitudeValue, longitudeValue, unitValue);
 }
 
 function convertToCelcius(event) {
@@ -279,6 +280,7 @@ function convertToCelcius(event) {
   let cityNameValue = cityElement.innerText;
   unitValue = "metric";
   getWeatherData(cityNameValue, unitValue);
+  getForcastData(latitudeValue, longitudeValue, unitValue);
 }
 
 function getLocationData(position) {
