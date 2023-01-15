@@ -19,8 +19,8 @@
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="content container">
-      <div class="search-bar container">
+    <div class="content container mt-2 px-4 py-4">
+      <div class="search-bar container container text-center fs-5">
         <div class="row">
           <div class="col-9">
             <form class="input-group">
@@ -34,111 +34,120 @@
               />
               <div class="col-2">
                 <button type="submit" class="btn">
-                  Search<i class="fa-solid fa-magnifying-glass"></i>
+                  Search<i class="fa-solid fa-magnifying-glass ps-1"></i>
                 </button>
               </div>
             </form>
           </div>
           <div class="col-3">
             <button class="btn" id="current-location">
-              Current<i class="fa-solid fa-location-dot"></i>
+              Current<i class="fa-solid fa-location-dot ps-1"></i>
             </button>
           </div>
         </div>
       </div>
-      <div class="today container">
-        <div class="row">
-          <div class="today-weather col-5">
+      <div class="today container my-4">
+        <div class="row ms-0 me-3">
+          <div class="today-weather col-6 text-center p-0">
             <i id="weather-icon"></i>
-            <h2></h2>
+            <h2 class="ps-2"></h2>
           </div>
-          <div class="col-2">
-            <span class="unit"
-              ><span class="active" id="celcius">°C</span
-              ><span id="farenheit">°F</span></span
-            >
-            <span class="statistic">
-              <ul>
+          <div class="col-2 p-0">
+            <div class="unit py-3">
+              <span class="active pe-3" id="celcius">°C</span
+              ><span class="ps-2" id="farenheit">°F</span>
+            </div>
+            <div class="statistic">
+              <ul class="p-0">
                 <li>
                   <i class="fa-solid fa-temperature-high"></i
-                  ><span>High : </span><span id="high-temp"></span>
+                  ><span class="ps-2 pe-1">High : </span
+                  ><span id="high-temp"></span>
                 </li>
                 <li>
-                  <i class="fa-solid fa-temperature-low"></i><span>Low : </span
+                  <i class="fa-solid fa-temperature-low"></i
+                  ><span class="ps-2 pe-1">Low : </span
                   ><span id="low-temp"></span>
                 </li>
                 <li>
                   <i class="fa-solid fa-temperature-half"></i
-                  ><span>Feels like : </span><span id="feels-temp"></span>
+                  ><span class="ps-2 pe-1">Feels like : </span
+                  ><span id="feels-temp"></span>
                 </li>
               </ul>
-            </span>
+            </div>
           </div>
-          <div class="location col-5">
+          <div class="location col-4 align-self-center text-end p-0">
             <h1><span id="city">Tehran</span>, <span id="country">IR</span></h1>
             <h3>
-              <span id="today-time"></span
+              <span id="today-time" class="pe-2"></span
               ><i id="update" class="fa-solid fa-rotate"></i>
             </h3>
             <div class="sky" id="weather-description"></div>
           </div>
         </div>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="statistic col-3">
+      <div class="container mx-1 mb-5">
+        <div class="statistc-tomarrow row">
+          <div class="statistic p-0 col-3">
             <ul>
               <li>
-                <i class="fa-solid fa-umbrella"></i><span>Precipitation : </span
+                <i class="fa-solid fa-umbrella"></i
+                ><span class="ps-2 pe-1">Precipitation : </span
                 ><span id="precipitation"></span>
               </li>
               <li>
-                <i class="fa-solid fa-droplet"></i><span>Humidity : </span
+                <i class="fa-solid fa-droplet"></i
+                ><span class="ps-2 pe-1">Humidity : </span
                 ><span id="humidity"></span>
               </li>
               <li>
-                <i class="fa-solid fa-wind"></i><span>Wind : </span
+                <i class="fa-solid fa-wind"></i
+                ><span class="ps-2 pe-1">Wind : </span
                 ><span id="wind-speed"></span
                 ><span id="wind-speed-unit">m/s</span>
               </li>
               <li>
-                <i class="fa-solid fa-glasses"></i><span>UV Index : </span
+                <i class="fa-solid fa-glasses"></i
+                ><span class="ps-2 pe-1">UV Index : </span
                 ><span id="uv-index"></span>
               </li>
             </ul>
           </div>
-          <div class="col-5">
+          <div class="col-5 p-0">
             <ul class="statistic">
               <div class="container text-center">
                 <div class="row">
                   <div class="col-6">
                     <li>
-                      <i class="fa-regular fa-sun"></i><span>Sunrise</span>
+                      <i class="fa-regular fa-sun"></i
+                      ><span class="ps-2 pe-1">Sunrise</span>
                       <div id="sunrise"></div>
                     </li>
                   </div>
                   <div class="col-6">
                     <li>
                       <i class="fa-solid fa-mountain-sun"></i
-                      ><span>Sunset</span>
+                      ><span class="ps-2 pe-1">Sunset</span>
                       <div id="sunset"></div>
                     </li>
                   </div>
                 </div>
               </div>
-              <li class="text-center">
-                <i class="fa-regular fa-moon"></i><span>Moon phase : </span
+              <li class="text-center mt-3">
+                <i class="fa-regular fa-moon"></i
+                ><span class="ps-2 pe-1">Moon phase : </span
                 ><span id="moon-phase"></span>
               </li>
             </ul>
           </div>
-          <div id="tomarrow-weather" class="col-4"></div>
+          <div id="tomarrow-weather" class="col-4 p-0"></div>
         </div>
       </div>
       <div id="weekdays" class="container text-center"></div>
     </div>
-    <footer>
-      <i class="fa-brands fa-github"></i
+    <footer class="text-center">
+      <i class="fa-brands fa-github pt-2 pe-1"></i
       ><a href="https://github.com/ZariTaghavi/Weather-App" target="_blank"
         >Open-source code</a
       >

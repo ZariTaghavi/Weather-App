@@ -156,17 +156,18 @@ function showForcastData(response) {
 
   tomarrowWeatherHtml = `<div class="container">
         <div class="tomarrow row">
-          <div class="col-7 text-end">
+          <div class="col-7 text-end p-0">
             <a href="#">Tomorrow</a>
             <div class="sky">${forcast[1].weather[0].description}</div>
           </div>
-          <div class="col-5 text-center">
+          <div class="col-5 text-center p-0">
             <i class="${getWeathericon(
               forcast[1].weather[0].id,
               forcast[1].weather[0].icon
             )}"></i>
-            <span class="high">${Math.round(forcast[1].temp.max)}°</span>
-            <span> ${Math.round(forcast[1].temp.min)}°</span>
+            <div><span class="high">${Math.round(forcast[1].temp.max)}°</span>
+            <span> ${Math.round(forcast[1].temp.min)}°</span></div>
+          </div>
           </div>
         </div>
     </div>`;
@@ -174,14 +175,14 @@ function showForcastData(response) {
   weekDayHtml = `<div class="row">`;
   forcast.forEach(function (day, index) {
     if (index >= 2 && index <= 6) {
-      weekDayHtml += `<div class="weekday col">
-            <a href="#">${formatWeekdayshort(
+      weekDayHtml += `<div class="weekday p-2 mx-5 col">
+            <a href="#" class="mb-2">${formatWeekdayshort(
               day.dt
             )}</a><i class="${getWeathericon(
         day.weather[0].id,
         day.weather[0].icon
       )}"></i>
-            <div><span class="high">${Math.round(
+            <div class="mt-2"><span class="high">${Math.round(
               day.temp.max
             )}°</span> ${Math.round(day.temp.min)}°</div>
           </div>`;
@@ -219,7 +220,7 @@ function showWeatherData(response) {
   feelsTemperatureElement.innerHTML = `${feelsTemperatureValue}`;
   descriptionElement.innerHTML = `${descriptionValue}`;
   humidityElement.innerHTML = `${humidityValue} %`;
-  windSpeedElement.innerHTML = `${windSpeedValue}`;
+  windSpeedElement.innerHTML = `${windSpeedValue} `;
   sunriseElement.innerHTML = `${formatClock(sunriseValue)}`;
   sunsetElement.innerHTML = `${formatClock(sunsetValue)}`;
 }

@@ -10,19 +10,14 @@ a {
 
 ul {
   list-style: none;
+  margin: 0;
 }
 
 .content {
   width: 85%;
-  margin-top: 10px;
-  padding: 30px 40px 20px;
   border: 1px solid transparent;
   border-radius: 30px;
   background-color: #272142;
-}
-
-.search-bar {
-  font-size: 20px;
 }
 
 .search-bar button {
@@ -40,27 +35,12 @@ ul {
   border: 1px solid #ffd447;
 }
 
-.search-bar i {
-  padding-left: 3px;
-  font-size: 14px;
-}
-
-.today {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.today-weather {
-  padding: 0;
-  text-align: center;
-}
-
 .today h2,
 .today .unit,
 .today a:hover,
 .location h1,
 #today-time,
-.tomarrow a:hover {
+#tomarrow a:hover {
   color: #ff558e;
 }
 
@@ -72,26 +52,20 @@ ul {
 }
 
 #weather-icon {
-  padding-right: 10px;
   font-size: 160px;
 }
 
 .today .unit {
-  display: inline-block;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 600;
-  vertical-align: top;
-  margin-top: 20px;
 }
 
 #celcius {
-  padding-right: 8px;
   color: #ffd447;
   transition: all 200ms ease-in-out;
 }
 
 #farenheit {
-  padding-left: 6px;
   border-left: 3px solid #d4cae2;
   color: #ffd447;
   transition: all 200ms ease-in-out;
@@ -109,27 +83,6 @@ ul {
   color: #ff558e;
 }
 
-.today span.statistic {
-  padding: 0;
-}
-
-.today span.statistic ul {
-  padding: 0;
-  margin: 20px 0 0;
-}
-
-.today div.col-2 {
-  padding: 0;
-}
-
-.location {
-  text-align: right;
-  vertical-align: middle;
-  margin-top: 15px;
-  padding-right: 25px;
-  padding-left: 0;
-}
-
 #city {
   font-size: 52px;
   line-height: 1;
@@ -140,7 +93,6 @@ ul {
 }
 
 #update {
-  padding-left: 8px;
   font-size: 24px;
   color: #ffd447;
   transition: all 200ms ease-in-out;
@@ -151,49 +103,47 @@ ul {
   color: #ff558e;
 }
 
-.sky,
-.statistic {
+.sky {
   color: #defffc;
+  text-transform: capitalize;
 }
 
 .today .sky {
   font-size: 24px;
-  text-transform: capitalize;
+}
+
+.statistc-tomarrow {
+  align-items: center;
+  vertical-align: middle;
 }
 
 .statistic {
+  color: #defffc;
   font-size: 18px;
-  padding-left: 80px;
-}
-
-.statistic li i {
-  padding-right: 8px;
 }
 
 .statistic li span {
   font-weight: 600;
-  padding-right: 4px;
 }
 
 .tomarrow {
-  text-align: right;
-  padding-top: 20px;
+  align-items: center;
+  vertical-align: middle;
 }
 
-.tomarrow a {
+#tomarrow-weather a {
   font-size: 36px;
   font-weight: 600;
   line-height: 1;
+  transition: all 200ms ease-in-out;
 }
 
-.tomarrow .sky {
+#tomarrow-weather .sky {
   font-size: 18px;
 }
 
 #tomarrow-weather i {
   font-size: 60px;
-  vertical-align: middle;
-  margin: 20px 5px 0 0;
 }
 
 #tomarrow-weather span,
@@ -202,8 +152,7 @@ ul {
 }
 
 #tomarrow-weather span {
-  font-size: 36px;
-  vertical-align: middle;
+  font-size: 24px;
 }
 
 #tomarrow-weather .high {
@@ -212,14 +161,11 @@ ul {
 
 #weekdays {
   width: 90%;
-  margin-top: 10px;
 }
 
 .weekday {
   border: 1px solid #d4cae2;
   border-radius: 10px;
-  margin: 10px 40px 0;
-  padding: 10px;
   transition: all 200ms ease-in-out;
 }
 
@@ -233,7 +179,6 @@ ul {
   display: block;
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 10px;
 }
 
 #weekdays a:hover,
@@ -316,7 +261,6 @@ i.fa-tornado {
 
 .weekday div {
   font-size: 20px;
-  margin-top: 10px;
 }
 
 .weekday .high {
@@ -324,7 +268,6 @@ i.fa-tornado {
 }
 
 footer {
-  text-align: center;
   color: #272142;
 }
 
@@ -338,6 +281,5 @@ footer a:hover {
 
 footer i {
   font-size: 18px;
-  padding: 5px 3px 0 0;
   color: #7743ef;
 }
