@@ -40,7 +40,7 @@ ul {
 .today a:hover,
 .location h1,
 #today-time,
-#tomarrow a:hover {
+.title {
   color: #ff558e;
 }
 
@@ -104,7 +104,7 @@ ul {
 }
 
 .sky {
-  color: #defffc;
+  color: #e2eafc;
   text-transform: capitalize;
 }
 
@@ -118,7 +118,7 @@ ul {
 }
 
 .statistic {
-  color: #defffc;
+  color: #e2eafc;
   font-size: 18px;
 }
 
@@ -131,14 +131,14 @@ ul {
   vertical-align: middle;
 }
 
-#tomarrow-weather a {
+#tomarrow-weather .title {
   font-size: 36px;
   font-weight: 600;
   line-height: 1;
-  transition: all 200ms ease-in-out;
 }
 
 #tomarrow-weather .sky {
+  color: #defffc;
   font-size: 18px;
 }
 
@@ -146,16 +146,15 @@ ul {
   font-size: 60px;
 }
 
-#tomarrow-weather span,
-.weekday div {
-  color: #e2eafc;
+.temprature {
+  color: #defffc;
 }
 
-#tomarrow-weather span {
+#tomarrow-weather .temprature {
   font-size: 24px;
 }
 
-#tomarrow-weather .high {
+.high {
   font-weight: 700;
 }
 
@@ -169,20 +168,21 @@ ul {
   transition: all 200ms ease-in-out;
 }
 
+.weekday .title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.weekday .temprature {
+  font-size: 20px;
+}
+
 .weekday:hover {
   background-color: #ffd447;
   box-shadow: 3px 3px 5px 2px rgba(255, 212, 71, 0.3);
   border: 1px solid transparent;
 }
 
-#weekdays a {
-  display: block;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-#weekdays a:hover,
-.weekday:hover a,
 .weekday:hover.weekday div {
   color: #3f3855;
 }
@@ -224,7 +224,7 @@ i.fa-cloud-moon {
 }
 
 i.fa-cloud-sun-rain {
-  color: #ff9244;
+  color: #f77a21;
 }
 
 i.fa-cloud-moon-rain {
@@ -259,12 +259,8 @@ i.fa-tornado {
   color: #ffb4a2;
 }
 
-.weekday div {
-  font-size: 20px;
-}
-
-.weekday .high {
-  font-weight: 700;
+i.fa-mountain-sun {
+  color: #fa9750;
 }
 
 footer {

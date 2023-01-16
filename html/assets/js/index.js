@@ -157,7 +157,7 @@ function showForcastData(response) {
   tomarrowWeatherHtml = `<div class="container">
         <div class="tomarrow row">
           <div class="col-7 text-end p-0">
-            <a href="#">Tomorrow</a>
+            <span class="title">Tomorrow</span>
             <div class="sky">${forcast[1].weather[0].description}</div>
           </div>
           <div class="col-5 text-center p-0">
@@ -165,9 +165,10 @@ function showForcastData(response) {
               forcast[1].weather[0].id,
               forcast[1].weather[0].icon
             )}"></i>
-            <div><span class="high">${Math.round(forcast[1].temp.max)}°</span>
+            <div class="temprature"><span class="high">${Math.round(
+              forcast[1].temp.max
+            )}°</span>
             <span> ${Math.round(forcast[1].temp.min)}°</span></div>
-          </div>
           </div>
         </div>
     </div>`;
@@ -176,13 +177,13 @@ function showForcastData(response) {
   forcast.forEach(function (day, index) {
     if (index >= 2 && index <= 6) {
       weekDayHtml += `<div class="weekday p-2 mx-5 col">
-            <a href="#" class="mb-2">${formatWeekdayshort(
+            <div class="title mb-2">${formatWeekdayshort(
               day.dt
-            )}</a><i class="${getWeathericon(
+            )}</div><i class="${getWeathericon(
         day.weather[0].id,
         day.weather[0].icon
       )}"></i>
-            <div class="mt-2"><span class="high">${Math.round(
+            <div class="temprature mt-2"><span class="high">${Math.round(
               day.temp.max
             )}°</span> ${Math.round(day.temp.min)}°</div>
           </div>`;
