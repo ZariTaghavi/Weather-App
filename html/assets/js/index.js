@@ -234,7 +234,7 @@ function showWeatherUnit(weatherUnit) {
   } else {
     celciusLink.classList.remove("active");
     farenheitLink.classList.add("active");
-    windSpeedUnitElement.innerHTML = `mph`;
+    windSpeedUnitElement.innerHTML = `m/h`;
   }
 }
 
@@ -288,7 +288,7 @@ function convertToCelcius(event) {
 function getLocationData(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let cityWeatherUrl = `${weatherApiUrl}lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}`;
+  let cityWeatherUrl = `${weatherApiUrl}weather?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}`;
   axios.get(cityWeatherUrl).then(showCityData);
 }
 
